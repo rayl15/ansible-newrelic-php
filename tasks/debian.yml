@@ -3,6 +3,17 @@
   set_fact:
     newrelic_loaded_os_family: "{{ ansible_os_family }}"
 
+- name: Debian | Install wget
+  apt:
+    pkg: wget
+    state: latest
+
+- name: add new relic ppa
+  shell: echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | sudo tee /etc/apt/sources.list.d/newrelic.list    
+
+- name: add new relic ppa
+  shell: wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+
 - name: Debian | Install New Relic PHP Agent
   apt:
     pkg: newrelic-php5

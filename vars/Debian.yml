@@ -1,4 +1,4 @@
 ---
-php_d_path: /etc/php5/conf.d
-php_fpm_service: php5-fpm
-apache_service: apache2
+php_d_path: /etc/php/7.0/cli/conf.d/
+php_fpm_service: php7.0-fpm
+nginx_service: nginx
